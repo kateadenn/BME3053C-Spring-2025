@@ -1,4 +1,6 @@
 link: ssh bandit2@bandit.labs.overthewire.org -p 2220
-pass 1: ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
-pass 2: 263JGJPfgU6LtdEvgfWU1XP5yac29mFx
-pass 3: MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+pass 0->1: ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+pass 1->2: 263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+pass 2->3: MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+pass 3->4: 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+pass 4->5: 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
