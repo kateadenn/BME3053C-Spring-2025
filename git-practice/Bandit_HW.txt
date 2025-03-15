@@ -1,6 +1,24 @@
-link: ssh bandit2@bandit.labs.overthewire.org -p 2220
+link: ssh banditX@bandit.labs.overthewire.org -p 2220
+    #replace X with level
+
 pass 0->1: ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+    learned:
+        -ls: lists files
+        -cat .<filename>: displays content of files
+
 pass 1->2: 263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+    learned:
+        -to look for files with -: "cat ./-"
+
 pass 2->3: MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+    learned:
+        -u can use cat."phrase"
 pass 3->4: 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+    learned: 
+        -(ls -la): finds hidden files
+        -cd <filename>: goes into <filename>
 pass 4->5: 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+    learned:
+        -file ./*: tells u type of file (data or ASCII (readable))
+
+next is bandit5
