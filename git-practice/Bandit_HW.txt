@@ -2,23 +2,50 @@ link: ssh banditX@bandit.labs.overthewire.org -p 2220
     #replace X with level
 
 pass 0->1: ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
-    learned:
-        -ls: lists files
-        -cat .<filename>: displays content of files
+    ls: lists files
+    cat <filename>: displays content of files
 
 pass 1->2: 263JGJPfgU6LtdEvgfWU1XP5yac29mFx
-    learned:
-        -to look for files with -: "cat ./-"
+    to look for files with -: "cat ./-"
 
 pass 2->3: MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
-    learned:
-        -u can use cat."phrase"
-pass 3->4: 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
-    learned: 
-        -(ls -la): finds hidden files
-        -cd <filename>: goes into <filename>
-pass 4->5: 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
-    learned:
-        -file ./*: tells u type of file (data or ASCII (readable))
+    u can use cat."phrase"
 
-next is bandit5
+pass 3->4: 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+    (ls -la): finds hidden files
+    cd <filename>: goes into <filename>
+        
+pass 4->5: 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+    file ./*: tells u type of file (data or ASCII (readable))
+
+pass 5->6: HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+    find -size ####c (c stands for bytes so there may be others) allows u to search for a file of that size 
+    find -type f -size 1033c  (-type f searches for FILES)
+
+pass 6->7: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+    soln: find / -user bandit7 -group bandit6 -size 33c 2>/dev/null 
+    2>/dev/null <- hides permission errors
+    find / searches entire system
+
+pass 7->8: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+    soln: cat data.txt | grep millionth
+    soln2: grep "millionth" data.txt
+    grep finds keyword 'millionth' and prints line that matches
+    grep: print lines that match patterns
+
+pass 8->9: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM 
+    soln: sort data.txt | uniq -u
+
+    sort automatically puts things alphabetically
+    **The uniq command only works on adjacent duplicate line so u need to sort first!!
+
+    wrong soln:
+        sort data.txt
+        uniq -u data.txt
+            this separate line soln won't work because uniq -u is still using the original, unsorted file (data.txt), not the sorted output.
+    the other option is to save the sorted as a file and read that:
+        sort data.txt > sorted.txt
+        uniq -u sorted.txt
+
+
+next 9 bandit
