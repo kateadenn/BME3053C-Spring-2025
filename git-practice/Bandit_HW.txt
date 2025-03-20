@@ -47,5 +47,14 @@ pass 8->9: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
         sort data.txt > sorted.txt
         uniq -u sorted.txt
 
+pass 9->10: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+    soln: strings data.txt | grep ==
+    strings function finds readable strings
 
-next 9 bandit
+pass 10->11: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRrd
+    soln: base64 -d data.txt
+    -d is decode
+    Base64 is a binary-to-text encoding scheme (usually has == at end)
+
+
+next 11 bandit
